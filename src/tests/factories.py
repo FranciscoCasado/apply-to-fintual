@@ -27,7 +27,7 @@ class StockFactory:
         start_date = datetime.date(2021, 1, 1)
         for days in range(366):
             date = start_date + datetime.timedelta(days=days)
-            value = base_price * (1 + rate) ** (days / 366)
+            value = base_price * (1 + rate/100.0) ** (days / 365.0)
             stock.set_price_at_date(date, value)
 
         return stock
