@@ -5,6 +5,9 @@ from .factories import Portfolio, PortfolioFactory, Stock, StockFactory
 
 
 class TestStockFactory(unittest.TestCase):
+    def test_company_not_registered(self):
+        self.assertRaises(ValueError, StockFactory.create, "non_existent_company")
+
     def test_piggy_bank(self):
         s = StockFactory.create("piggy_bank")
         date1 = datetime.date(2021, 1, 1)
