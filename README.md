@@ -25,9 +25,9 @@ El archivo `src/portfolio.py` contiene la clase con los atributos:
 - `stock_units`: diccionatio cuya llave es el nombre del stock y su valor la cantidad de unidades que se poseen de dichas acciones
 - `name`: el nombre del portafolio
 
-Por defecto, `stocks` y `stock_units` se inicializan vacíos. Para incorporar `Stocks`, agregué un método simplecito `add_stocks`.
+Por defecto, `stocks` y `stock_units` se inicializan vacíos. Para incorporar `Stocks`, debe existir un método adicional `Portfolio.add_stocks`.
 
-El método `profit` hace lo siguiente:
+El método `Portfolio.profit` hace lo siguiente:
 - calcular el valor del portafolio *para cada fecha* como la suma ponderada entre cada precio de stock y las unidades que lo componen
 - calcular la diferencia porcentual
 - calcular el valor anualizado a partir de la diferencia porcentual
@@ -37,7 +37,7 @@ Por defecto, retorna el valor anualizado, si no (`annualized=False`) retorna la 
 ## Programar y testear
 Implementé las clases `Stock` y `PortfolioFactory` para poder testear como corresponde.
 
-El método `price` de `Stock` calcula el precio de la acción considerando una tasa compuesta fija y tomando como referencia el precio al 01 de enero de 2021.
+El método `Stock.price` calcula el precio de la acción considerando una tasa compuesta fija y tomando como referencia el precio al 01 de enero de 2021.
 
 
 ## Referencias

@@ -2,22 +2,18 @@
 Stock has a "Price" method that receives a date and returns its price
 """
 import datetime
+from datetime import date as Date
 
 
 class Stock:
-
-    def __init__(self, name: str, base_price: float, rate: float):
+    def __init__(self, name: str):
         self.name = name
-        self.base_price = base_price
-        self.rate = rate
+        self.prices = dict()
 
-    def price(self, date: datetime.date) -> float:
-        """
-        just for funnier testing (?) purposes, lets say these
-        stocks grow at a fixed compuound rate, with base_price 
-        value specified at January 1st of 2021, 
-        """
-        days = (date - datetime.date(2021,1,1)).days
-        
-        price = self.base_price * (1 + self.rate) ** (days/365.0)
-        return price
+    def set_price_at_date(self, date: Date, value: float):
+        self.prices[date] = value
+
+    def price(self, date: Date) -> float:
+        if date not in self.prices:
+            raise ValueError(f"No information for the specified date: {date}")
+        return self.prices[date]
