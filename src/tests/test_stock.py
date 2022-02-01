@@ -6,22 +6,25 @@ from ..stock import Stock
 
 class TestStock(unittest.TestCase):
     def test_zero_growth_stock(self):
-        s = Stock("rocket", base_price=10, rate=0)
-        date = datetime.date(2022, 1, 1)
+        s = Stock("steady_inc")
+        date1 = datetime.date(2021, 1, 1)
+        date2 = datetime.date(2022, 1, 1)
+        
+        s.set_price_at_date(date1, 1000.0)
+        s.set_price_at_date(date2, 1000.0)
 
-        self.assertEqual(s.name, "rocket")
-        self.assertEqual(s.price(date), 10)
-
+        self.assertEqual(s.name, "steady_inc")
+        self.assertEqual(s.price(date1), 1000.0)
+        self.assertEqual(s.price(date2), 1000.0)
+        
     def test_little_growth_stock(self):
-        s = Stock("rocket", base_price=10, rate=0.01)
-        date = datetime.date(2022, 1, 1)
+        s = Stock("chillin_co")
+        date1 = datetime.date(2021, 1, 1)
+        date2 = datetime.date(2022, 1, 1)
+        
+        s.set_price_at_date(date1, 1000.0)
+        s.set_price_at_date(date2, 1010.0)
 
-        self.assertEqual(s.name, "rocket")
-        self.assertAlmostEqual(s.price(date), 10.1)
-
-    def test_little_growth_stock_before_2021(self):
-        s = Stock("rocket", base_price=10, rate=0.01)
-        date = datetime.date(2020, 12, 1)
-
-        self.assertEqual(s.name, "rocket")
-        self.assertAlmostEqual(s.price(date), 10 * (1 - 0.01) ** (30 / 365), places=3)
+        self.assertEqual(s.name, "chillin_co")
+        self.assertEqual(s.price(date1), 1000.0)
+        self.assertEqual(s.price(date2), 1010.0)
