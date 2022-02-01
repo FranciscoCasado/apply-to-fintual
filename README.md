@@ -1,5 +1,7 @@
 # ¡Hola Fintual :wave:!
-Acá explico un poco lo que hice, en tres etapas: entender, modelar y t
+Acá explico un poco lo que hice, en tres etapas: entender, modelar y 3. hacer tests y programar
+
+Aprendí algunas cosas no-intuitivas que comento al final
 
 ## Primero saber qué es un portafolio 
 Un portafolio es una colecciones de acciones (stocks). Cada acción tiene un valor monetario que varía en el tiempo, por lo que el valor del portafolio, calculado como la suma de todas las acciones que contiene, también varía en el tiempo.
@@ -39,8 +41,23 @@ Implementé las clases `Stock` y `PortfolioFactory` para poder testear como corr
 
 El método `Stock.price` calcula el precio de la acción considerando una tasa compuesta fija y tomando como referencia el precio al 01 de enero de 2021.
 
+Agregué `factories` para poder tener testeos más limpios.
+
+## Cosas que aprendí
+Durante el testing noté que el retorno anualizado varía su valor dependiendo de:
+- las fechas elegidas
+- la composición del portafolio (`stock_units`)
+- las tasas de crecimiento de cada `stock`
+
+En un principio pensé que podían ser errores numéricos, ya que se presentaban errores luego del 6 decimal para las tasas.
+
+Probé diferentes rangos de fechas y noté que al menos había una tendencia, así que lo puse todo en un [*excel*](https://docs.google.com/spreadsheets/d/1wI652m_Oh9uhr_uXftMh3ZDKHrhFcP7TwI2DoAb8fis/edit?usp=sharing) para ver como varian las pendientes y todas esas cosas. Tiene un gráfico :chart:
+
 
 ## Referencias
 
-Fintual API: https://fintual.cl/api-docs/index.html
+- Fintual API: https://fintual.cl/api-docs/index.html
+Primero revisé esto para entender cómo modelan los assets en Fintual :rocket:.
+- Investopedia: https://www.investopedia.com/terms/a/annualized-total-return.asp
+El primer resultado en google, *citado por todas las demás personas que han hecho esta tarea*
 
