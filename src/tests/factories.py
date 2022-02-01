@@ -9,7 +9,6 @@ class StockFactory:
     companies = {
         "stalled_co": {"base_price": 1000.0, "rate": 0.0},
         "piggy_bank": {"base_price": 1000.0, "rate": 0.0},
-        "steady_inc": {"base_price": 1000.0, "rate": 3.5},
         "chillin_ltd": {"base_price": 1000.0, "rate": 7.0},
         "stark_industries": {"base_price": 1000.0, "rate": 20.0},
         "block_buster": {"base_price": 1000.0, "rate": -20.0},
