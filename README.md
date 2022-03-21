@@ -37,7 +37,7 @@ El método `Portfolio.profit` hace lo siguiente:
 Por defecto, retorna el valor anualizado, si no (`annualized=False`) retorna la diferencia porcentual.
 
 ## Programar y testear
-Implementé las clases `Stock` y `PortfolioFactory` para poder testear como corresponde.
+Implementé las clases `Stock` y `PortflioFactory` para poder testear como corresponde.
 
 El método `Stock.price` calcula el precio de la acción considerando una tasa compuesta fija y tomando como referencia el precio al 01 de enero de 2021.
 
